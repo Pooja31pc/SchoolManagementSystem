@@ -6,12 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Student's Form</title>
+    <title>Grade's Form</title>
   </head>
   <body link="#000" alink="017bf5" vlink="#000">
     <h1 align="center">
       <font face="Lato" color="#4caf50" size="7">
-        LEARNER's ACADEMY
+       	LEARNER's ACADEMY
       </font>
     </h1>
      <hr/>
@@ -23,20 +23,13 @@
       </font>
     </h3>
 
-    <form action="<%=request.getContextPath()%>/insertStudent" method="GET">
+    <form action="<%=request.getContextPath()%>/insertGrade" method="GET">
       <div>
-        <label>FirstName:</label>
-        <input type="text" name="FirstName" placeholder="FirstName" required>
-      </div>
-      <div>
-        <label>LastName:</label>
-        <input type="text" name="LastName" placeholder="LastName" required>
-      </div>
-      <div>
-        <label>Cls_id:</label>
-        <input type="number" name="Cls_id" placeholder="Cls_id" required min="1">
+        <label>Standard</label>
+        <input type="text" name="Standard" placeholder="Standard" required>
       </div>
       <button type="submit" class="btn btn-success">Save</button>
     </form>
   </body>
 </html>
+

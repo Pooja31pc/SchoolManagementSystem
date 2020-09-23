@@ -23,18 +23,10 @@
       </font>
     </h3>
 
-    <form action="<%=request.getContextPath()%>/insertStudent" method="GET">
+    <form action="<%=request.getContextPath()%>/insertSubject" method="GET">
       <div>
-        <label>FirstName:</label>
-        <input type="text" name="FirstName" placeholder="FirstName" required>
-      </div>
-      <div>
-        <label>LastName:</label>
-        <input type="text" name="LastName" placeholder="LastName" required>
-      </div>
-      <div>
-        <label>Cls_id:</label>
-        <input type="number" name="Cls_id" placeholder="Cls_id" required min="1">
+        <label>SubjectName</label>
+        <input type="text" name="SubjectName" placeholder="SubjectName" required>
       </div>
       <button type="submit" class="btn btn-success">Save</button>
     </form>

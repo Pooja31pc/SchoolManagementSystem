@@ -15,9 +15,8 @@
     	table-layout:fixed;
     	text-align:center;
     	margin-top:50px;
-    	font-size:0.9cm;
     	font-family:Arial;
-    	color:#ffffff;
+    	color:#fff;
     }
     table, th, td{
     	border:1px dotted white;
@@ -39,34 +38,31 @@
       <font face="cinzel" size="4">
         <a href="<%=request.getContextPath()%>/home">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </font>
-	    <a href="<%=request.getContextPath()%>/newGradeForm">
-      		<font face="cinzel" size="4" color="#000">ADD STUDENTS</font>
+	    <a href="<%=request.getContextPath()%>/newSubjectForm">
+      		<font face="cinzel" size="4" color="#000">ADD SUBJECTS</font>
     	</a>
 	</h3>
 	 <hr/>
+
     <table class="table table-bordered" border=1 cellspacing=0 cellpadding=10>
 				<thead>
 					<tr>
-						<th>SRNO</th>
-						<th>FirstName</th>
-						<th>LastName</th>
-						<th>ClsId</th>
+						<th>SID</th>
+						<th>SubjectName</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
 				
 				<tbody>
 					<!--   for (Todo todo: todos) {  -->
-					<c:forEach var="student" items="${listStudent}">
+					<c:forEach var="subject" items="${listSubject}">
 
 						<tr>
-							<td><c:out value="${student.getSrno()}" /></td>
-							<td><c:out value="${student.getFirstName()}" /></td>
-							<td><c:out value="${student.getLastName()}" /></td>
-							<td><c:out value="${student.getClsId()}" /></td>
-							<td><a href="edit?srno=<c:out value='${student.getClsId()}' />">Edit</a>
+							<td><c:out value="${subject.getSid()}" /></td>
+							<td><c:out value="${subject.getSubjectName()}" /></td>
+							<td><a href="edit?srno=<c:out value='${subject.getSid()}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="delete?srno=<c:out value='${student.getClsId()}' />">Delete</a></td>
+								href="delete?srno=<c:out value='${subject.getSid()}' />">Delete</a></td>
 						</tr>
 					</c:forEach>
 					<!-- } -->
@@ -74,4 +70,3 @@
 			</table>
   </body>
 </html>
-

@@ -1,6 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<! DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -9,7 +7,7 @@
   <body link="#000" alink="017bf5" vlink="#000">
     <h1 align="center">
       <font face="Lato" color="#4caf50" size="7">
-       	LEARNER's ACADEMY
+        LEARNER's ACADEMY
       </font>
     </h1>
      <hr/>
@@ -17,7 +15,7 @@
 
     <h3>
       <font face="cinzel" size="4">
-         <a href="<%=request.getContextPath()%>/home">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="<%=request.getContextPath()%>/home">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="<%=request.getContextPath()%>/teacher">TEACHER</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="<%=request.getContextPath()%>/student">STUDENT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="<%=request.getContextPath()%>/subject">SUBJECT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -27,17 +25,17 @@
     <br /><br />
 
     <h2 align="center">
-      <font face="Lato" color="#454545" size="6"><b>STUDENTS</b></font>
+      <font face="Lato" color="#454545" size="6"><b>SUBJECTS</b></font>
     </h2>
     <br />
 
     <h3 align="center">
-    <a href="<%=request.getContextPath()%>/newStudentForm">
-      <font face="Lato" color="#000">ADD STUDENTS</font>
+    <a href="<%=request.getContextPath()%>/newSubjectForm">
+      <font face="Lato" color="#000">ADD SUBJECTS</font>
     </a>&nbsp;&nbsp;&nbsp;
     <br /><br />
-    <a href="<%=request.getContextPath()%>/listStudent">
-      <font face="Lato" color="#000">STUDENT's LIST</font>
+    <a href="<%=request.getContextPath()%>/listSubject">
+      <font face="Lato" color="#000">SUBJECT's LIST</font>
     </a>
     </h3>
   </body>

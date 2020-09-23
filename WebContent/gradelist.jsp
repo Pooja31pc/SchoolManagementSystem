@@ -23,7 +23,7 @@
     	border:1px dotted white;
     	border-collapse:collapse;
     	padding:10px;
-    	font-size:20px;
+    	font-size:10px;
     }
     th{
     	background:purple;
@@ -40,7 +40,7 @@
         <a href="<%=request.getContextPath()%>/home">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </font>
 	    <a href="<%=request.getContextPath()%>/newGradeForm">
-      		<font face="cinzel" size="4" color="#000">ADD STUDENTS</font>
+      		<font face="cinzel" size="4" color="#000">ADD GRADES</font>
     	</a>
 	</h3>
 	 <hr/>
@@ -48,25 +48,21 @@
 				<thead>
 					<tr>
 						<th>SRNO</th>
-						<th>FirstName</th>
-						<th>LastName</th>
-						<th>ClsId</th>
+						<th>Standard</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
 				
 				<tbody>
 					<!--   for (Todo todo: todos) {  -->
-					<c:forEach var="student" items="${listStudent}">
+					<c:forEach var="grade" items="${listGrade}">
 
 						<tr>
-							<td><c:out value="${student.getSrno()}" /></td>
-							<td><c:out value="${student.getFirstName()}" /></td>
-							<td><c:out value="${student.getLastName()}" /></td>
-							<td><c:out value="${student.getClsId()}" /></td>
-							<td><a href="edit?srno=<c:out value='${student.getClsId()}' />">Edit</a>
+							<td><c:out value="${grade.getCid()}" /></td>
+							<td><c:out value="${grade.getStandard()}" /></td>
+							<td><a href="edit?srno=<c:out value='${grade.getCid()}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="delete?srno=<c:out value='${student.getClsId()}' />">Delete</a></td>
+								href="delete?srno=<c:out value='${grade.getCid()}' />">Delete</a></td>
 						</tr>
 					</c:forEach>
 					<!-- } -->
@@ -74,4 +70,3 @@
 			</table>
   </body>
 </html>
-

@@ -8,19 +8,20 @@
   </head>
   <body link="#000" alink="017bf5" vlink="#000">
     <h1 align="center">
-      <font face="Lato" color="#017bf5" size="7">
-        SCHOOL MANAGEMENT PROJECT
+      <font face="Lato" color="#4caf50" size="7">
+        LEARNER's ACADEMY
       </font>
     </h1>
+     <hr/>
     <br />
 
     <h3>
       <font face="cinzel" size="4">
-        <a href="HOME.html">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="TEACHER.html">TEACHER</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="<%=request.getContextPath()%>/home">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="<%=request.getContextPath()%>/teacher">TEACHER</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="<%=request.getContextPath()%>/student">STUDENT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="SUBJECT.html">SUBJECT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="GRADE.html">CLASS</a>
+        <a href="<%=request.getContextPath()%>/subject">SUBJECT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="<%=request.getContextPath()%>/grade">CLASS</a>
       </font>
     </h3>
     <br /><br />

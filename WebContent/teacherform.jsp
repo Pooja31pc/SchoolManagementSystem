@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Student's Form</title>
+    <title>Teacher's Form</title>
   </head>
   <body link="#000" alink="017bf5" vlink="#000">
     <h1 align="center">
@@ -23,18 +23,26 @@
       </font>
     </h3>
 
-    <form action="<%=request.getContextPath()%>/insertStudent" method="GET">
+    <form action="<%=request.getContextPath()%>/insertTeacher" method="GET">
       <div>
-        <label>FirstName:</label>
+        <label>FirstName</label>
         <input type="text" name="FirstName" placeholder="FirstName" required>
       </div>
       <div>
-        <label>LastName:</label>
+        <label>LastName</label>
         <input type="text" name="LastName" placeholder="LastName" required>
       </div>
       <div>
-        <label>Cls_id:</label>
-        <input type="number" name="Cls_id" placeholder="Cls_id" required min="1">
+        <label>subject</label>
+        <input type="text" name="subject" placeholder="subject" required>
+      </div>
+      <div>
+        <label>gender</label>
+        <input type="text" name="gender" placeholder="gender" required>
+      </div>
+      <div>
+        <label>age</label>
+        <input type="number" name="age" placeholder="age" required>
       </div>
       <button type="submit" class="btn btn-success">Save</button>
     </form>

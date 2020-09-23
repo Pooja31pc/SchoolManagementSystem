@@ -15,15 +15,14 @@
     	table-layout:fixed;
     	text-align:center;
     	margin-top:50px;
-    	font-size:0.9cm;
     	font-family:Arial;
-    	color:#ffffff;
+    	color:#fff;
     }
     table, th, td{
     	border:1px dotted white;
     	border-collapse:collapse;
     	padding:10px;
-    	font-size:20px;
+    	font-size:10px;
     }
     th{
     	background:purple;
@@ -39,8 +38,8 @@
       <font face="cinzel" size="4">
         <a href="<%=request.getContextPath()%>/home">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </font>
-	    <a href="<%=request.getContextPath()%>/newGradeForm">
-      		<font face="cinzel" size="4" color="#000">ADD STUDENTS</font>
+	    <a href="<%=request.getContextPath()%>/newTeacherForm">
+      		<font face="cinzel" size="4" color="#000">ADD TEACHERS</font>
     	</a>
 	</h3>
 	 <hr/>
@@ -50,23 +49,27 @@
 						<th>SRNO</th>
 						<th>FirstName</th>
 						<th>LastName</th>
-						<th>ClsId</th>
+						<th>Subject</th>
+						<th>Gender</th>
+						<th>Age</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
 				
 				<tbody>
 					<!--   for (Todo todo: todos) {  -->
-					<c:forEach var="student" items="${listStudent}">
+					<c:forEach var="teacher" items="${listTeacher}">
 
 						<tr>
-							<td><c:out value="${student.getSrno()}" /></td>
-							<td><c:out value="${student.getFirstName()}" /></td>
-							<td><c:out value="${student.getLastName()}" /></td>
-							<td><c:out value="${student.getClsId()}" /></td>
-							<td><a href="edit?srno=<c:out value='${student.getClsId()}' />">Edit</a>
+							<td><c:out value="${teacher.getSrno()}" /></td>
+							<td><c:out value="${teacher.getFirstName()}" /></td>
+							<td><c:out value="${teacher.getLastName()}" /></td>
+							<td><c:out value="${teacher.getSubject()}" /></td>
+							<td><c:out value="${teacher.getGender()}" /></td>
+							<td><c:out value="${teacher.getAge()}" /></td>
+							<td><a href="edit?srno=<c:out value='${teacher.getSrno()}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="delete?srno=<c:out value='${student.getClsId()}' />">Delete</a></td>
+								href="delete?srno=<c:out value='${teacher.getSrno()}' />">Delete</a></td>
 						</tr>
 					</c:forEach>
 					<!-- } -->
@@ -74,4 +77,3 @@
 			</table>
   </body>
 </html>
-

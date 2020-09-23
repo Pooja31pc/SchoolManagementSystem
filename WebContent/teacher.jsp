@@ -9,7 +9,7 @@
   <body link="#000" alink="017bf5" vlink="#000">
     <h1 align="center">
       <font face="Lato" color="#4caf50" size="7">
-       	LEARNER's ACADEMY
+        LEARNER's ACADEMY
       </font>
     </h1>
      <hr/>
@@ -27,17 +27,17 @@
     <br /><br />
 
     <h2 align="center">
-      <font face="Lato" color="#454545" size="6"><b>STUDENTS</b></font>
+      <font face="Lato" color="#454545" size="6"><b>TEACHERS</b></font>
     </h2>
     <br />
 
     <h3 align="center">
-    <a href="<%=request.getContextPath()%>/newStudentForm">
-      <font face="Lato" color="#000">ADD STUDENTS</font>
+    <a href="<%=request.getContextPath()%>/newTeacherForm">
+      <font face="Lato" color="#000">ADD TEACHERS</font>
     </a>&nbsp;&nbsp;&nbsp;
     <br /><br />
-    <a href="<%=request.getContextPath()%>/listStudent">
-      <font face="Lato" color="#000">STUDENT's LIST</font>
+    <a href="<%=request.getContextPath()%>/listTeacher">
+      <font face="Lato" color="#000">TEACHER's LIST</font>
     </a>
     </h3>
   </body>
