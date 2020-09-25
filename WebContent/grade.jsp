@@ -24,7 +24,9 @@
         <a href="<%=request.getContextPath()%>/grade">CLASS</a>
       </font>
     </h3>
-    <br /><br />
+    <br />
+    <hr/>
+    <br />
 
     <h2 align="center">
       <font face="Lato" color="#454545" size="6"><b>GRADES</b></font>
@@ -32,6 +34,11 @@
     <br />
 
     <h3 align="center">
+    <a href="<%=request.getContextPath()%>/choosegrade">
+      <font face="Lato" color="#000">CHOOSE GRADE</font>
+    </a>&nbsp;&nbsp;&nbsp;
+    <br /><br />
+    
     <a href="<%=request.getContextPath()%>/newGradeForm">
       <font face="Lato" color="#000">ADD GRADES</font>
     </a>&nbsp;&nbsp;&nbsp;

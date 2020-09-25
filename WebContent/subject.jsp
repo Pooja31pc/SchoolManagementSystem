@@ -22,7 +22,7 @@
         <a href="<%=request.getContextPath()%>/grade">CLASS</a>
       </font>
     </h3>
-    <br /><br />
+    <br /><hr/><br />
 
     <h2 align="center">
       <font face="Lato" color="#454545" size="6"><b>SUBJECTS</b></font>

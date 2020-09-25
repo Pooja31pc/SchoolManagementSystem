@@ -24,7 +24,7 @@
         <a href="<%=request.getContextPath()%>/grade">CLASS</a>
       </font>
     </h3>
-    <br /><br />
+    <br /><hr/><br />
 
     <h2 align="center">
       <font face="Lato" color="#454545" size="6"><b>TEACHERS</b></font>
@@ -38,6 +38,10 @@
     <br /><br />
     <a href="<%=request.getContextPath()%>/listTeacher">
       <font face="Lato" color="#000">TEACHER's LIST</font>
+    </a>
+    <br /><br />
+    <a href="<%=request.getContextPath()%>/teacherSubjectForm">
+      <font face="Lato" color="#000">ASSIGN TEACHER's SUBJECT</font>
     </a>
     </h3>
   </body>

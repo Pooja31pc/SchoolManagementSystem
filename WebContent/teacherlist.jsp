@@ -49,7 +49,6 @@
 						<th>SRNO</th>
 						<th>FirstName</th>
 						<th>LastName</th>
-						<th>Subject</th>
 						<th>Gender</th>
 						<th>Age</th>
 						<th>Actions</th>
@@ -64,7 +63,6 @@
 							<td><c:out value="${teacher.getSrno()}" /></td>
 							<td><c:out value="${teacher.getFirstName()}" /></td>
 							<td><c:out value="${teacher.getLastName()}" /></td>
-							<td><c:out value="${teacher.getSubject()}" /></td>
 							<td><c:out value="${teacher.getGender()}" /></td>
 							<td><c:out value="${teacher.getAge()}" /></td>
 							<td><a href="edit?srno=<c:out value='${teacher.getSrno()}' />">Edit</a>

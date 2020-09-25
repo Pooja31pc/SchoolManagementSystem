@@ -15,8 +15,9 @@
     	table-layout:fixed;
     	text-align:center;
     	margin-top:50px;
+    	font-size:0.9cm;
     	font-family:Arial;
-    	color:#fff;
+    	color:#ffffff;
     }
     table, th, td{
     	border:1px dotted white;
@@ -38,35 +39,29 @@
       <font face="cinzel" size="4">
         <a href="<%=request.getContextPath()%>/home">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </font>
-	    <a href="<%=request.getContextPath()%>/newStudentForm">
-      		<font face="cinzel" size="4" color="#000">ADD STUDENTS</font>
-    	</a>
+	 <!--   <a href="<%=request.getContextPath()%>/newGradeForm">
+      		<font face="cinzel" size="4" color="#000">ADD GRADES</font>
+    	</a> -->
 	</h3>
 	 <hr/>
-
     <table class="table table-bordered" border=1 cellspacing=0 cellpadding=10>
 				<thead>
 					<tr>
-						<th>SRNO</th>
-						<th>FirstName</th>
-						<th>LastName</th>
-						<th>Cls_id</th>
-						<th>Actions</th>
+						<th>GID</th>
+						<th>Standard</th>
 					</tr>
 				</thead>
 				
 				<tbody>
 					<!--   for (Todo todo: todos) {  -->
-					<c:forEach var="student" items="${listStudent}">
+					<c:forEach var="grade" items="${listGrade}">
 
 						<tr>
-							<td><c:out value="${student.getSrno()}" /></td>
-							<td><c:out value="${student.getFirstName()}" /></td>
-							<td><c:out value="${student.getLastName()}" /></td>
-							<td><c:out value="${student.getClsId()}" /></td>
-							<td><a href="edit?srno=<c:out value='${student.getSrno()}' />">Edit</a>
-								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="delete?srno=<c:out value='${student.getSrno()}' />">Delete</a></td>
+							<td><c:out value="${grade.getGid()}" /></td>
+							<td><a href="<%=request.getContextPath()%>/gradewisedetails?gid=<c:out value='${grade.getGid()}' />"><c:out value="${grade.getStandard()}" /></a></td>
+<%-- 							<td><a href="edit?srno=<c:out value='${grade.getGid()}' />">Edit</a> --%>
+<!-- 								&nbsp;&nbsp;&nbsp;&nbsp; <a -->
+<%-- 								href="delete?srno=<c:out value='${grade.getGid()}' />">Delete</a></td> --%>
 						</tr>
 					</c:forEach>
 					<!-- } -->

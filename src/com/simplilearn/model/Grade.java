@@ -2,15 +2,14 @@ package com.simplilearn.model;
 
 public class Grade {
 
-	private int cid;
+	private int gid;
 	private String standard;
 	
-	
-	public int getCid() {
-		return cid;
+	public int getGid() {
+		return gid;
 	}
-	public void setCid(int cid) {
-		this.cid = cid;
+	public void setGid(int gid) {
+		this.gid = gid;
 	}
 	public String getStandard() {
 		return standard;
@@ -18,19 +17,16 @@ public class Grade {
 	public void setStandard(String standard) {
 		this.standard = standard;
 	}
-	
-	
-	public Grade(int cid, String standard) {
+	public Grade(int gid, String standard) {
 		super();
-		this.cid = cid;
+		this.gid = gid;
 		this.standard = standard;
 	}
-	
-	
 	public Grade(String standard) {
 		super();
 		this.standard = standard;
 	}
+	
 	
 	
 	

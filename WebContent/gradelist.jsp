@@ -47,7 +47,7 @@
     <table class="table table-bordered" border=1 cellspacing=0 cellpadding=10>
 				<thead>
 					<tr>
-						<th>SRNO</th>
+						<th>GID</th>
 						<th>Standard</th>
 						<th>Actions</th>
 					</tr>
@@ -58,11 +58,11 @@
 					<c:forEach var="grade" items="${listGrade}">
 
 						<tr>
-							<td><c:out value="${grade.getCid()}" /></td>
+							<td><c:out value="${grade.getGid()}" /></td>
 							<td><c:out value="${grade.getStandard()}" /></td>
-							<td><a href="edit?srno=<c:out value='${grade.getCid()}' />">Edit</a>
+							<td><a href="<%=request.getContextPath()%>/edit?srno=<c:out value='${grade.getGid()}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="delete?srno=<c:out value='${grade.getCid()}' />">Delete</a></td>
+								href="delete?srno=<c:out value='${grade.getGid()}' />">Delete</a></td>
 						</tr>
 					</c:forEach>
 					<!-- } -->

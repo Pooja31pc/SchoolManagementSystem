@@ -24,7 +24,7 @@
         <a href="<%=request.getContextPath()%>/grade">CLASS</a>
       </font>
     </h3>
-    <br /><br />
+    <br /><hr/><br />
     <hr/>
     <p><i>Learner’s Academy is a school that has an online management system.
       The system keeps track of its classes, subjects, students, and teachers.

@@ -22,7 +22,7 @@
     	border:1px dotted white;
     	border-collapse:collapse;
     	padding:10px;
-    	font-size:20px;
+    	font-size:10px;
     }
     th{
     	background:purple;

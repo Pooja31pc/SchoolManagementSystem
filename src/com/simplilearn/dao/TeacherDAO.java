@@ -18,13 +18,13 @@ public class TeacherDAO {
 	private String jdbcstudentname = "root";
 	private String jdbcpassword = "tutorindia00";
 	
-	private static final String INSERT_TEACHERS_SQL = "INSERT INTO teachers"+" (FirstName, LastName, subject, gender, age) VALUES"+"(?, ?, ?, ?, ?);";
-	
-	
-	private static final String SELECT_TEACHER_BY_ID = "select srno,FirstName,LastName,subject,gender,age from teachers where srno = ?";
+	private static final String INSERT_TEACHERS_SQL = "INSERT INTO teachers"+" (FirstName, LastName, gender, age) VALUES"+"(?, ?, ?, ?);";
+	private static final String SELECT_TEACHER_BY_ID = "select srno,FirstName,LastName,gender,age from teachers where srno = ?";
 	private static final String SELECT_ALL_TEACHERS = "select*from teachers";
 	private static final String DELETE_TEACHERS_SQL= "delete from teachers where srno = ?;";
-	private static final String UPDATE_TEACHERS_SQL = "update teachers set FirstName = ?, LastName = ?, subject = ?, gender = ?, age = ? where srno = ?;";
+	private static final String UPDATE_TEACHERS_SQL = "update teachers set FirstName = ?, LastName = ?, gender = ?, age = ? where srno = ?;";
+	
+	private static final String INSERT_TEACHERSUBJECTS_SQL = "INSERT INTO Teachers_Subject"+" (classid, subjectid, teacherid) VALUES"+"(?, ?, ?);";
 	
 	public TeacherDAO() {
 	}
@@ -43,15 +43,31 @@ public class TeacherDAO {
 	return connection;
 	}
 	
+	//
+	public void insertTeacherSubject(int classid, int subjectid, int teacherid) throws SQLException{
+		System.out.println(INSERT_TEACHERSUBJECTS_SQL);
+		try(Connection connection = getConnection();
+				PreparedStatement preparedstatement = connection.prepareStatement(INSERT_TEACHERSUBJECTS_SQL)){
+			preparedstatement.setInt(1, classid);
+			preparedstatement.setInt(2, subjectid);
+			preparedstatement.setInt(3, teacherid);
+			System.out.println(preparedstatement);
+			preparedstatement.executeUpdate();
+		} catch(SQLException e) {
+			printSQLException(e);
+		}
+	}
+	//
+	
+	
 	public void insertTeacher(Teacher teacher) throws SQLException{
 		System.out.println(INSERT_TEACHERS_SQL);
 		try(Connection connection = getConnection();
 				PreparedStatement preparedstatement = connection.prepareStatement(INSERT_TEACHERS_SQL)){
 			preparedstatement.setString(1, teacher.getFirstName());
 			preparedstatement.setString(2, teacher.getLastName());
-			preparedstatement.setString(3, teacher.getSubject());
-			preparedstatement.setString(4, teacher.getGender());
-			preparedstatement.setInt(5, teacher.getAge());
+			preparedstatement.setString(3, teacher.getGender());
+			preparedstatement.setInt(4, teacher.getAge());
 			System.out.println(preparedstatement);
 			preparedstatement.executeUpdate();
 		} catch(SQLException e) {
@@ -65,10 +81,9 @@ public class TeacherDAO {
 				PreparedStatement statement = connection.prepareStatement(UPDATE_TEACHERS_SQL);){
 				statement.setString(1, teacher.getFirstName());
 				statement.setString(2, teacher.getLastName());
-				statement.setString(3, teacher.getSubject());
-				statement.setString(4, teacher.getGender());
-				statement.setInt(5, teacher.getAge());
-				statement.setInt(6, teacher.getSrno());
+				statement.setString(3, teacher.getGender());
+				statement.setInt(4, teacher.getAge());
+				statement.setInt(5, teacher.getSrno());
 				
 				rowUpdated = statement.executeUpdate() > 0;
 			} 
@@ -88,10 +103,9 @@ public class TeacherDAO {
 				while(rs.next()) {
 					String FirstName = rs.getString("FirstName");
 					String LastName = rs.getString("LastName");
-					String subject = rs.getString("subject");
 					String gender = rs.getString("gender");
 					int age = rs.getInt("age");
-					teacher = new Teacher(srno, FirstName, LastName, subject, gender, age);
+					teacher = new Teacher(srno, FirstName, LastName, gender, age);
 				}
 			} catch (SQLException e) {
 				printSQLException(e);
@@ -111,10 +125,9 @@ public class TeacherDAO {
 					int srno = rs.getInt("srno");
 					String FirstName = rs.getString("FirstName");
 					String LastName = rs.getString("LastName");
-					String subject = rs.getString("subject");
 					String gender = rs.getString("gender");
 					int age = rs.getInt("age");
-					teachers.add(new Teacher(srno, FirstName, LastName, subject, gender, age));
+					teachers.add(new Teacher(srno, FirstName, LastName, gender, age));
 				}
 			} catch (SQLException e) {
 				printSQLException(e);

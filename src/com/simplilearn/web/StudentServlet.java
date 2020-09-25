@@ -10,8 +10,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.simplilearn.dao.GradeDAO;
+//import com.simplilearn.dao.LoginDAO;
 import com.simplilearn.dao.StudentDAO;
 import com.simplilearn.dao.SubjectDAO;
 import com.simplilearn.dao.TeacherDAO;
@@ -19,6 +19,7 @@ import com.simplilearn.model.Grade;
 import com.simplilearn.model.Student;
 import com.simplilearn.model.Subject;
 import com.simplilearn.model.Teacher;
+import com.simplilearn.model.TeacherSubjectGrade;
 
 /**
  * Servlet implementation class StudentServlet
@@ -30,6 +31,7 @@ public class StudentServlet extends HttpServlet {
 	private TeacherDAO teacherDAO;
 	private SubjectDAO subjectDAO;
 	private GradeDAO gradeDAO;
+	//private LoginDAO loginDAO;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -39,6 +41,7 @@ public class StudentServlet extends HttpServlet {
 		teacherDAO = new TeacherDAO();
 		subjectDAO = new SubjectDAO();
 		gradeDAO = new GradeDAO();
+		//loginDAO = new LoginDAO();
 	}
 	
 	/**
@@ -132,8 +135,23 @@ String action = request.getServletPath();
 			break;
 		case "/updateGrade":
 				updateGrade(request, response);
+		case "/choosegrade":
+			showParticularGradeDetails(request, response);
+			break;
+			//
+		case "/insertteachersubject":
+			insertTeacherSubject(request, response);
+			break;
+		case "/gradewisedetails":
+			gradeWiseDetails(request, response);
+			break;
+		//case "/updateteacherSubject":
+			//updateTeacherSubject(request, response);
+			//break;
+		case "/teacherSubjectForm":
+			assignTeacherSubjectForm(request, response);
+			break;
 			default:
-				//handle list
 				home(request, response);
 				break;
 		}
@@ -142,7 +160,8 @@ String action = request.getServletPath();
 		throw new ServletException(ex);
 	}
 	}
-	
+
+
 	private void home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("HOME.jsp");
 		dispatcher.forward(request, response);
@@ -160,6 +179,21 @@ String action = request.getServletPath();
 		RequestDispatcher dispatcher = request.getRequestDispatcher("studentlist.jsp");
 		dispatcher.forward(request, response);
 	}
+	
+	//
+	private void gradeWiseDetails(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+		int gid = Integer.parseInt(request.getParameter("gid"));
+		
+		List<Student> listGradeWiseStudent = gradeDAO.selectGradeWiseStudents(gid);
+		request.setAttribute("listGradeWiseStudent", listGradeWiseStudent);
+		
+		List<TeacherSubjectGrade> listSubjectTeacherGrade = gradeDAO.selectTeacherSubjectGrade(gid);
+		request.setAttribute("listSubjectTeacherGrade", listSubjectTeacherGrade);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("gradewisedetails.jsp");//make a jsp file for this
+		dispatcher.forward(request, response);
+	}
+	//
 	
 	
 	private void updateStudent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
@@ -221,14 +255,24 @@ String action = request.getServletPath();
 		int srno = Integer.parseInt(request.getParameter("srno"));
 		String FirstName = request.getParameter("FirstName");
 		String LastName = request.getParameter("LastName");
-		String subject = request.getParameter("subject");
 		String gender = request.getParameter("gender");
 		int age = Integer.parseInt(request.getParameter("age"));
 		
-		Teacher book = new Teacher(srno, FirstName, LastName, subject, gender, age);
+		Teacher book = new Teacher(srno, FirstName, LastName, gender, age);
 		teacherDAO.updateTeacher(book);
 		response.sendRedirect("list");
 	}
+	//
+	/*private void updateTeacherSubject(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+		int teacherid = Integer.parseInt(request.getParameter("teacherid"));
+		int classid = Integer.parseInt(request.getParameter("classid"));
+		int subjectid =Integer.parseInt( request.getParameter("subjectid"));
+		
+		AssignTeacherSubject book = new AssignTeacherSubject(teacherid, classid, subjectid);
+		assignteachersubjectDAO.updateTeacherSubject(book);
+		response.sendRedirect("list");
+	}*/
+	//
 	
 	private void deleteTeacher(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 		int srno = Integer.parseInt(request.getParameter("srno"));
@@ -241,17 +285,33 @@ String action = request.getServletPath();
 		dispatcher.forward(request, response);
 	}
 	
+	private void assignTeacherSubjectForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assignteachersubject.jsp");
+		dispatcher.forward(request, response);
+	}
+	
 	private void insertTeacher(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 		String FirstName = request.getParameter("FirstName");
 		String LastName = request.getParameter("LastName");
-		String subject = request.getParameter("subject");
 		String gender = request.getParameter("gender");
 		int age = Integer.parseInt(request.getParameter("age"));
-		Teacher newTeacher = new Teacher(FirstName, LastName, subject, gender, age);
+		Teacher newTeacher = new Teacher(FirstName, LastName, gender, age);
 		teacherDAO.insertTeacher(newTeacher);
 		response.sendRedirect("teacher");
 		
 	}
+	
+	//
+	private void insertTeacherSubject(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+		int classid = Integer.parseInt(request.getParameter("classid"));
+		int subjectid = Integer.parseInt(request.getParameter("subjectid"));
+		int teacherid = Integer.parseInt(request.getParameter("teacherid"));
+		//Teacher newTeacher = new Teacher(Classid, Subjectid, Teacherid);
+		teacherDAO.insertTeacherSubject(classid, subjectid, teacherid);
+		response.sendRedirect("teacher");
+		
+	}
+	//
 	
 	private void showEditTeacherForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int srno = Integer.parseInt(request.getParameter("srno"));
@@ -260,7 +320,8 @@ String action = request.getServletPath();
 		request.setAttribute("teacher", existingTeacher);
 		dispatcher.forward(request, response);
 	}
-	//
+
+	
 	private void showSubjectPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("subject.jsp");
 		dispatcher.forward(request, response);
@@ -324,20 +385,20 @@ String action = request.getServletPath();
 		RequestDispatcher dispatcher = request.getRequestDispatcher("gradelist.jsp");
 		dispatcher.forward(request, response);
 	}
-	
+		
 	
 	private void updateGrade(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-		int cid = Integer.parseInt(request.getParameter("cid"));
+		int gid = Integer.parseInt(request.getParameter("gid"));
 		String Standard = request.getParameter("Standard");
 		
-		Grade book = new Grade(cid, Standard);
+		Grade book = new Grade(gid, Standard);
 		gradeDAO.updateGrade(book);
 		response.sendRedirect("list");
 	}
 	
 	private void deleteGrade(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-		int cid = Integer.parseInt(request.getParameter("cid"));
-		gradeDAO.deleteGrade(cid);
+		int gid = Integer.parseInt(request.getParameter("gid"));
+		gradeDAO.deleteGrade(gid);
 		response.sendRedirect("list");
 	}
 	
@@ -355,12 +416,19 @@ String action = request.getServletPath();
 	}
 	
 	private void showEditGradeForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int cid = Integer.parseInt(request.getParameter("cid"));
-		Grade existingGrade = gradeDAO.selectGrade(cid);
+		int gid = Integer.parseInt(request.getParameter("gid"));
+		Grade existingGrade = gradeDAO.selectGrade(gid);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("grade-form.jsp");
 		request.setAttribute("grade", existingGrade);
 		dispatcher.forward(request, response);
 		
+	}
+	
+	private void showParticularGradeDetails(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<Grade> listGrade = gradeDAO.selectAllGrades();
+		request.setAttribute("listGrade", listGrade);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("grade_options.jsp");
+		dispatcher.forward(request, response);
 	}
 //
 	/**

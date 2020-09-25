@@ -24,6 +24,8 @@ public class SubjectDAO {
 	private static final String DELETE_SUBJECTS_SQL= "delete from Subjects where sid = ?;";
 	private static final String UPDATE_SUBJECTS_SQL = "update Subjects set subjectName = ?;";
 	
+	
+	
 	public SubjectDAO() {
 	}
 
