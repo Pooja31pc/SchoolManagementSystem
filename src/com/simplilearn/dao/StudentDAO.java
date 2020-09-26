@@ -23,7 +23,7 @@ public class StudentDAO {
 	
 	private static final String SELECT_STUDENT_BY_ID = "select srno,FirstName,LastName,Cls_id from student_name where srno = ?";
 	private static final String SELECT_ALL_STUDENTS = "select*from student_name";
-	private static final String DELETE_STUDENTS_SQL= "delete from student_name where srno = ?;";
+	//private static final String DELETE_STUDENTS_SQL= "delete from student_name where srno = ?;";
 	private static final String UPDATE_STUDENTS_SQL = "update student_name set FirstName = ?, LastName = ?, Cls_id = ? where srno = ?;";
 	
 	
@@ -115,7 +115,7 @@ public class StudentDAO {
 			return student_name;
 		}
 			
-		public boolean deleteStudent(int srno) throws SQLException{
+		/*public boolean deleteStudent(int srno) throws SQLException{
 			boolean rowDeleted;
 			try(Connection connection = getConnection();
 					PreparedStatement statement = connection.prepareStatement(DELETE_STUDENTS_SQL);) {
@@ -125,7 +125,7 @@ public class StudentDAO {
 				
 			}
 			return rowDeleted;
-		}
+		}*/
 		
 		private void printSQLException(SQLException ex) {
 			for (Throwable e : ex) {

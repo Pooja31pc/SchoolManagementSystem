@@ -21,7 +21,7 @@ public class TeacherDAO {
 	private static final String INSERT_TEACHERS_SQL = "INSERT INTO teachers"+" (FirstName, LastName, gender, age) VALUES"+"(?, ?, ?, ?);";
 	private static final String SELECT_TEACHER_BY_ID = "select srno,FirstName,LastName,gender,age from teachers where srno = ?";
 	private static final String SELECT_ALL_TEACHERS = "select*from teachers";
-	private static final String DELETE_TEACHERS_SQL= "delete from teachers where srno = ?;";
+	//private static final String DELETE_TEACHERS_SQL= "delete from teachers where srno = ?;";
 	private static final String UPDATE_TEACHERS_SQL = "update teachers set FirstName = ?, LastName = ?, gender = ?, age = ? where srno = ?;";
 	
 	private static final String INSERT_TEACHERSUBJECTS_SQL = "INSERT INTO Teachers_Subject"+" (classid, subjectid, teacherid) VALUES"+"(?, ?, ?);";
@@ -135,7 +135,7 @@ public class TeacherDAO {
 			return teachers;
 		}
 			
-		public boolean deleteTeacher(int srno) throws SQLException{
+		/*public boolean deleteTeacher(int srno) throws SQLException{
 			boolean rowDeleted;
 			try(Connection connection = getConnection();
 					PreparedStatement statement = connection.prepareStatement(DELETE_TEACHERS_SQL);) {
@@ -145,7 +145,7 @@ public class TeacherDAO {
 				
 			}
 			return rowDeleted;
-		}
+		}*/
 		
 		private void printSQLException(SQLException ex) {
 			for (Throwable e : ex) {

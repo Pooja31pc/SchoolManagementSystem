@@ -25,7 +25,7 @@ public class GradeDAO {
 	
 	private static final String SELECT_GRADE_BY_ID = "select gid,standard from grade where gid = ?";
 	private static final String SELECT_ALL_GRADES = "select*from grade";
-	private static final String DELETE_GRADES_SQL= "delete from grade where gid = ?;";
+	//private static final String DELETE_GRADES_SQL= "delete from grade where gid = ?;";
 	private static final String UPDATE_GRADES_SQL = "update grade set standard = ? where gid = ?;";
 	private static final String SELECT_GRADE_STUDENTS = "SELECT * FROM Student_Name INNER JOIN grade ON Student_Name.Cls_id = grade.gid WHERE gid = ?"; 
 	private static final String SELECT_GRADE_STUDENTS_SUBJECTS = "SELECT subjectName, FirstName, LastName, standard FROM teachers t, Subjects s, Teachers_Subject t_s, grade g WHERE s.sid = t_s.subjectid AND t_s.teacherid = t.srno AND  t_s.classid = g.gid AND g.gid = ?";
@@ -165,7 +165,7 @@ public class GradeDAO {
 			return grade;
 		}
 			
-		public boolean deleteGrade(int gid) throws SQLException{
+		/*public boolean deleteGrade(int gid) throws SQLException{
 			boolean rowDeleted;
 			try(Connection connection = getConnection();
 					PreparedStatement statement = connection.prepareStatement(DELETE_GRADES_SQL);) {
@@ -175,7 +175,7 @@ public class GradeDAO {
 				
 			}
 			return rowDeleted;
-		}
+		}*/
 		
 		private void printSQLException(SQLException ex) {
 			for (Throwable e : ex) {

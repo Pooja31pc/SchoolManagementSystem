@@ -7,8 +7,16 @@
     <title>Pooja's Website</title>
   </head>
   <body link="#000" alink="017bf5" vlink="#000">
+  
+  <%
+    	if(session.getAttribute("username")==null)
+    	{
+    		response.sendRedirect("login.jsp");
+    	}
+    %>
+    
     <h1 align="center">
-      <font face="Lato" color="#4caf50" size="7">
+      <font face="Lato" color="#009879" size="7">
         LEARNER's ACADEMY
       </font>
     </h1>
@@ -21,7 +29,14 @@
         <a href="<%=request.getContextPath()%>/teacher">TEACHER</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="<%=request.getContextPath()%>/student">STUDENT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="<%=request.getContextPath()%>/subject">SUBJECT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="<%=request.getContextPath()%>/grade">CLASS</a>
+        <a href="<%=request.getContextPath()%>/grade">CLASS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <a href="<%=request.getContextPath()%>/login">Logout</a>
       </font>
     </h3>
     <br />
@@ -29,22 +44,22 @@
     <br />
 
     <h2 align="center">
-      <font face="Lato" color="#454545" size="6"><b>GRADES</b></font>
+      <font face="Lato" color="#454545" size="6"><b>CLASSES</b></font>
     </h2>
     <br />
 
     <h3 align="center">
     <a href="<%=request.getContextPath()%>/choosegrade">
-      <font face="Lato" color="#000">CHOOSE GRADE</font>
+      <font face="Lato" color="#000">CHOOSE CLASS</font>
     </a>&nbsp;&nbsp;&nbsp;
     <br /><br />
     
     <a href="<%=request.getContextPath()%>/newGradeForm">
-      <font face="Lato" color="#000">ADD GRADES</font>
+      <font face="Lato" color="#000">ADD CLASS</font>
     </a>&nbsp;&nbsp;&nbsp;
     <br /><br />
     <a href="<%=request.getContextPath()%>/listGrade">
-      <font face="Lato" color="#000">GRADE's LIST</font>
+      <font face="Lato" color="#000">CLASS's LIST</font>
     </a>
     </h3>
   </body>

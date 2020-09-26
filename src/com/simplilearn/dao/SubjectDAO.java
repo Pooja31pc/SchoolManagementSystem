@@ -21,7 +21,7 @@ public class SubjectDAO {
 	
 	private static final String SELECT_SUBJECT_BY_ID = "select sid,subjectName from Subjects where srno = ?";
 	private static final String SELECT_ALL_SUBJECTS = "select*from Subjects";
-	private static final String DELETE_SUBJECTS_SQL= "delete from Subjects where sid = ?;";
+	//private static final String DELETE_SUBJECTS_SQL= "delete from Subjects where sid = ?;";
 	private static final String UPDATE_SUBJECTS_SQL = "update Subjects set subjectName = ?;";
 	
 	
@@ -106,7 +106,7 @@ public class SubjectDAO {
 			return Subjects;
 		}
 			
-		public boolean deleteSubject(int sid) throws SQLException{
+		/*public boolean deleteSubject(int sid) throws SQLException{
 			boolean rowDeleted;
 			try(Connection connection = getConnection();
 					PreparedStatement statement = connection.prepareStatement(DELETE_SUBJECTS_SQL);) {
@@ -116,7 +116,7 @@ public class SubjectDAO {
 				
 			}
 			return rowDeleted;
-		}
+		}*/
 		
 		private void printSQLException(SQLException ex) {
 			for (Throwable e : ex) {

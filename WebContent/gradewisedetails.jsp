@@ -4,28 +4,28 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Pooja's Website</title>
+    <title>LEARNER's ACADEMY</title>
     <style>
-    body{
-    	background:gray;
-    }
+    
     table{
     	width:800px;
     	margin:auto;
     	table-layout:fixed;
     	text-align:center;
     	margin-top:50px;
-    	font-family:Arial;
-    	color:#fff;
+    	font-family:'Quicksand',sans-serif;
+    	color:#000000;
+    	font-weight:bold;
     }
     table, th, td{
-    	border:1px dotted white;
+    	border:1px dotted black;
     	border-collapse:collapse;
     	padding:10px;
     	font-size:10px;
     }
     th{
-    	background:purple;
+    	background:#009879;
+    	color:white;
     	padding:20px;
     	text-transform:uppercase;
     }
@@ -34,9 +34,21 @@
   </head>
   <body>
 
-	<h3>
+<%
+    	if(session.getAttribute("username")==null)
+    	{
+    		response.sendRedirect("login.jsp");
+    	}
+    %>
+
+	<h3><br/>
       <font face="cinzel" size="4">
         <a href="<%=request.getContextPath()%>/home">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="<%=request.getContextPath()%>/teacher">TEACHER</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="<%=request.getContextPath()%>/student">STUDENT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="<%=request.getContextPath()%>/subject">SUBJECT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="<%=request.getContextPath()%>/grade">CLASS</a><br /> <br/> 
+			<hr />
       </font>
 	    <a href="<%=request.getContextPath()%>/newSubjectForm">
       		<font face="cinzel" size="4" color="#000">ADD GRADES</font>
@@ -50,7 +62,7 @@
 						<th>SRNO</th>
 						<th>FirstName</th>
 						<th>LastName</th>
-						<th>Actions</th>
+						
 					</tr>
 				</thead>
 				
@@ -62,9 +74,7 @@
 							<td><c:out value="${student.getSrno()}" /></td>
 							<td><c:out value="${student.getFirstName()}" /></td>
 							<td><c:out value="${student.getLastName()}" /></td>
-							<td><a href="edit?srno=<c:out value='${student.getSrno()}' />">Edit</a>
-								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="delete?srno=<c:out value='${student.getSrno()}' />">Delete</a></td>
+							
 						</tr>
 					</c:forEach>
 					<!-- } -->
@@ -78,7 +88,7 @@
 						<th>FirstName</th>
 						<th>LastName</th>
 						<th>Standard</th>
-						<th>Actions</th>
+						
 					</tr>
 				</thead>
 				
