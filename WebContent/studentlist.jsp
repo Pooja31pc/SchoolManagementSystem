@@ -35,11 +35,10 @@ th {
 <body>
 
 	<%
-    	if(session.getAttribute("username")==null)
-    	{
-    		response.sendRedirect("login.jsp");
-    	}
-    %>
+		if (session.getAttribute("username") == null) {
+		response.sendRedirect("login.jsp");
+	}
+	%>
 
 
 	<h3>

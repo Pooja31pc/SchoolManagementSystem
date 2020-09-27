@@ -18,22 +18,23 @@
 	<br />
 	<br />
 	<h2 align="center">
-		<font face="Lato" color="#009879" size="5">Log in to LEARNER's ACADEMY </font>
+		<font face="Lato" color="#009879" size="5">Log in to LEARNER's
+			ACADEMY </font>
 	</h2>
-	<br/><br/>
+	<br />
+	<br />
 	<h3 align="center">
-	<form action="<%=request.getContextPath()%>/login" method="GET">
-		<div>
-			<label>UserName:</label> <input type="text" name="uname"
-				placeholder="UserName" required>
-		</div>
-		<div>
-			<label>Password:</label> <input type="password" name="pass"
-				placeholder="Password" required>
-		</div>
-		<br/>
-		<input type="submit" value="Log in">
-	</form>
+		<form action="<%=request.getContextPath()%>/login" method="GET">
+			<div>
+				<label>UserName:</label> <input type="text" name="uname"
+					placeholder="UserName" required>
+			</div>
+			<div>
+				<label>Password:</label> <input type="password" name="pass"
+					placeholder="Password" required>
+			</div>
+			<br /> <input type="submit" value="Log in">
+		</form>
 	</h3>
 </body>
 </head>
